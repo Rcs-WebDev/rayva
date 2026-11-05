@@ -31,13 +31,6 @@ jobs:
       - name: Generate Android project files
         run: flutter create --org com.rayva --project-name rayva --platforms android .
 
-      # Pakai kunci tanda tangan yang sama di setiap build, supaya APK baru
-      # bisa langsung di-install di atas versi lama tanpa menghapus data.
-      - name: Setup signing key
-        run: |
-          mkdir -p ~/.android
-          cp android/keystore/rayva.keystore ~/.android/debug.keystore
-
       - run: flutter pub get
 
       - name: Run tests
@@ -68,3 +61,4 @@ jobs:
           body: |
             Unduh file `.apk` di bawah ini dari HP, lalu buka untuk meng-install.
             (Izinkan "Instal dari sumber tidak dikenal" jika diminta.)
+
